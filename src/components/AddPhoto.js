@@ -5,7 +5,6 @@ export default class AddPhoto extends Component {
     render() {
         return(
             <div>
-                <h1>Add New Photo</h1>
                 <div className="form">
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="Link" name="link" />
@@ -33,7 +32,8 @@ export default class AddPhoto extends Component {
         }
 
         if(imageLink && description) {
-            this.props.onAddPhoto(post)
+            this.props.addPost(post)
+            this.props.history.push('/')
         }
 
     }

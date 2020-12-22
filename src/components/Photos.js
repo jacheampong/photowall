@@ -4,15 +4,11 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 export default function Photos(props) {
-    const photoList = props.photos
+    const photoList = props.posts
                     .sort((x, y) => { 
                         return y.id - x.id
                     })
-                    .map((photo, index) => <Photo 
-                        key={photo.id} 
-                        photo={photo}
-                        removePhoto={props.removePhoto}
-                />)
+                    .map((photo, index) => <Photo key={photo.id} photo={photo} index={index} {...props} />)
                 
         return(
             <div>
@@ -27,6 +23,5 @@ export default function Photos(props) {
 
 // Adding typechecking on the props for component
 Photos.propTypes = {
-    photos: PropTypes.array.isRequired,
-    removePhoto: PropTypes.func.isRequired
+    posts: PropTypes.array.isRequired,
 }
