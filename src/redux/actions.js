@@ -14,3 +14,11 @@ export const addPost = (post) => {
         post,
     }
 }
+
+export const addComment = (comment, postId) => {
+    return {
+        type: 'ADD_COMMENT',
+        comment,
+        postId
+    }
+}

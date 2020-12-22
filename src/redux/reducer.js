@@ -1,8 +1,10 @@
 import {Posts} from '../model/Posts'
+import {combineReducers} from 'redux'
 
 // initializing state valid to post
-const postReducer = function post(state = Posts, action) {
-    console.log(action.index)
+const posts = (state = Posts, action) => {
+    console.log('posts reducer')
+    // console.log(action.index)
 
     switch (action.type) {
         case 'REMOVE_POST': return [...state.slice(0, action.index), ...state.slice(action.index + 1)]
@@ -12,4 +14,21 @@ const postReducer = function post(state = Posts, action) {
     }
 }
 
-export default postReducer
+const comments = (state={}, action) => {
+    console.log('comments reducer')
+    switch (action.type) {
+        case 'ADD_COMMENT': 
+        
+        if(!state[action.postId]) {
+            return {...state, [action.postId]: [action.comment]}
+        } else {
+            return {...state, [action.postId]: [...state[action.postId], action.comment]}
+        }
+        
+        default: return state
+    }
+}
+
+const rootReducer = combineReducers({posts, comments})
+
+export default rootReducer

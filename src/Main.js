@@ -1,18 +1,14 @@
 import React, {Component} from 'react'
-import Title from './components/Title'
 import Photos from './components/Photos'
 import './main.css'
-import {Posts} from './model/Posts'
 import AddPhoto from './components/AddPhoto'
 import {Link, Route} from 'react-router-dom'
-import {removePost} from './redux/actions'
+import Single from './components/Single'
 
 export default class Main extends Component {
-
     // called before component is mounted
     constructor() {
         super()
-
         console.log('constructor ...')
     }
 
@@ -33,6 +29,10 @@ export default class Main extends Component {
 
                 <Route path="/AddPhoto" exact render={({history}) => (
                     <AddPhoto {...this.props} />
+                )} />
+
+                <Route path="/single/:id" render={(params) => (
+                    <Single {...this.props} {...params} />
                 )} />
 
             </div>
