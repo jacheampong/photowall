@@ -11,7 +11,7 @@ export default function Photo (props) {
             <figcaption><p>{photo.description}</p></figcaption>
             <div className="button-container">
                 <button onClick={() => {
-                    props.removePost(props.index)
+                    props.startRemovePost(props.index, photo.id)
                     props.history.push('/')
                 }} className="button"> Remove </button>
                 <Link className="button" to={`/single/${photo.id}`} > 
@@ -27,6 +27,6 @@ export default function Photo (props) {
 }
 
 // Adding typechecking on the props for component
-Photo.propTypes = {
-    photo: PropTypes.object.isRequired,
-}
+// Photo.propTypes = {
+//     photo: PropTypes.object.isRequired,
+// }

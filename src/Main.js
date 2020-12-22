@@ -6,6 +6,21 @@ import {Link, Route} from 'react-router-dom'
 import Single from './components/Single'
 
 export default class Main extends Component {
+
+    state = {
+        loading: true
+    }
+    
+    componentDidMount() {
+        this.props.loadPostFromDB()
+            .then(() => {
+                this.setState({
+                    loading: false
+                })
+            })
+        this.props.startLoadingComments()
+    }
+
     // called before component is mounted
     constructor() {
         super()
@@ -32,7 +47,7 @@ export default class Main extends Component {
                 )} />
 
                 <Route path="/single/:id" render={(params) => (
-                    <Single {...this.props} {...params} />
+                    <Single loading={this.state.loading} {...this.props} {...params} />
                 )} />
 
             </div>

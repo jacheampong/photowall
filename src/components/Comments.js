@@ -6,7 +6,7 @@ export default class Comments extends Component {
         event.preventDefault()
         const comment = event.target.comment.value
         console.log(comment)
-        this.props.addComment(comment, this.props.id)
+        this.props.startAddingComment(comment, this.props.id)
         event.target.comment.value = ''
     }
 
