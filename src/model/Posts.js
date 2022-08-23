@@ -14,6 +14,11 @@ const Posts = [
         description: "On a vacation!",
         imageLink: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg"
     },
+     {
+        id: 2,
+        description: "History in Karnak",
+        imageLink: "https://cdn.britannica.com/18/153418-050-2975B7F2/Hieroglyphics-temple-wall-Karnak-Egypt.jpg"
+    },
 ];
 
 export {Posts}
