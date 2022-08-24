@@ -59,7 +59,7 @@ function App() {
         }
       </div>
       {/* <AmplifySignOut /> */}
-      <withAuthenticator />
+      <withAuthenticatornpm />
     </div>
   );
 }
